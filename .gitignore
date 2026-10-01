@@ -1,0 +1,9 @@
+build/
+.vscode/
+__pycache__/
+*.pyc
+results/*.csv
+results/*.json
+results/*.png
+results/
+README.md
