@@ -9,12 +9,19 @@ add_library(trading_core
     src/order_book.cpp
     src/matching_engine.cpp
     src/simulator.cpp
+    src/itch_parser.cpp
 )
 target_include_directories(trading_core PUBLIC include)
 target_compile_options(trading_core PRIVATE $<$<CXX_COMPILER_ID:GNU,Clang>:-Wall;-Wextra;-Wpedantic>)
 
 add_executable(trading_demo src/main.cpp)
 target_link_libraries(trading_demo PRIVATE trading_core)
+
+add_executable(itch_terminal src/itch_terminal.cpp)
+target_link_libraries(itch_terminal PRIVATE trading_core)
+
+add_executable(itch_benchmark src/itch_benchmark.cpp)
+target_link_libraries(itch_benchmark PRIVATE trading_core)
 
 add_executable(matching_tests tests/test_matching.cpp)
 target_link_libraries(matching_tests PRIVATE trading_core)

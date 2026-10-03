@@ -6,4 +6,5 @@ results/*.csv
 results/*.json
 results/*.png
 results/
+data/*
 README.md

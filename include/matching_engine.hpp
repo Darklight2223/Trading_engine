@@ -11,6 +11,9 @@ class MatchingEngine {
 public:
     std::vector<Trade> submit(Side side, std::int64_t price_ticks,
                               std::uint64_t quantity);
+    bool cancel(std::uint64_t order_reference, std::uint64_t quantity);
+    bool replace(std::uint64_t old_reference, std::int64_t price_ticks,
+                 std::uint64_t quantity);
     [[nodiscard]] const OrderBook& book() const noexcept;
 
 private:
